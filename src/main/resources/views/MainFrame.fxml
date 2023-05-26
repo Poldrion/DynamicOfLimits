@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox styleClass="main-frame" stylesheets="@../style/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dynamics.views.controllers.MainFrameController">
+   <children>
+      <VBox HBox.hgrow="ALWAYS">
+         <children>
+            <HBox fx:id="topBar" prefHeight="100.0" prefWidth="200.0" styleClass="top-bar">
+               <children>
+                  <VBox id="Main" fx:id="generalInformation" styleClass="top-bar-menu">
+                     <children>
+                        <Label fx:id="generalInformationTitle" text="Общая информация" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox id="Details" fx:id="detailInformation" layoutX="10.0" layoutY="10.0" styleClass="top-bar-menu">
+                     <children>
+                        <Label fx:id="detailInformationTitle" text="Детализация по структурному подразделению" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox id="BusinessPlan" fx:id="businessPlan" layoutX="310.0" layoutY="10.0" styleClass="top-bar-menu">
+                     <children>
+                        <Label fx:id="businessPlanTitle" text="Бизнес-план" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <StackPane fx:id="contentView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="content-view" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </children>
+</HBox>

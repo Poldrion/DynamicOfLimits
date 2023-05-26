@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<HBox styleClass="edit-window" stylesheets="@../../style/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dynamics.views.controllers.popups.DepartmentEdit">
+   <children>
+      <VBox maxHeight="1.7976931348623157E308" styleClass="edit-window-side">
+         <children>
+            <SVGPath content="M27 0h-24c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h24c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3zM26 28h-22v-24h22v24zM8 18h14v2h-14zM8 22h14v2h-14zM10 9c0-1.657 1.343-3 3-3s3 1.343 3 3c0 1.657-1.343 3-3 3s-3-1.343-3-3zM15 12h-4c-1.65 0-3 0.9-3 2v2h10v-2c0-1.1-1.35-2-3-2z" scaleX="2.0" scaleY="2.0" />
+         </children>
+      </VBox>
+      <VBox HBox.hgrow="ALWAYS">
+         <children>
+            <HBox styleClass="edit-window-header">
+               <children>
+                  <Label fx:id="header" maxWidth="1.7976931348623157E308" text="Label" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox styleClass="edit-window-message">
+               <children>
+                  <Label fx:id="message" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox styleClass="edit-window-content">
+               <children>
+                  <VBox styleClass="sp-5" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="nameFieldTitle" text="Label" />
+                        <TextField fx:id="departmentNameTF" maxWidth="1.7976931348623157E308" promptText="Prompt text" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox styleClass="edit-window-button">
+               <children>
+                  <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#save" text="Save" />
+                  <Button fx:id="exitBtn" layoutX="350.0" layoutY="20.0" mnemonicParsing="false" onAction="#close" text="Exit" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

@@ -1,0 +1,304 @@
+* {
+    primary: #E38B29;
+    primary-light: #F1A661;
+    secondary: #FFD8A9;
+    secondary-light: #FDEEDC;
+    alternate-text: #AD2B03;
+}
+
+.main-frame {
+    -fx-pref-width: 1280px;
+    -fx-pref-height: 780px;
+}
+
+.content-view {
+    -fx-pref-width: 1280px;
+    -fx-pref-height: 740px;
+    -fx-max-width: 5000px;
+    -fx-max-height: 3000px;
+    -fx-background-color: secondary;
+}
+/* --------------------------------------------- Блок авторизации --------------------------------------------- */
+.login-view {
+    -fx-pref-width: 480px;
+    -fx-background-color: secondary;
+}
+.login-title {
+    -fx-alignment: center-left;
+    -fx-padding: 16px;
+    -fx-background-color: primary;
+}
+.login-title .header {
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+}
+.login-body {
+    -fx-padding: 0 64 16 16;
+}
+/* -------------------------------------------------------------------------------------------------------------*/
+
+/* -------------------------------------------- Блок верхней панели ------------------------------------------- */
+.top-bar {
+    -fx-padding: 0 0 0 0;
+    -fx-background-color: primary;
+    -fx-max-height: 40px;
+}
+
+.top-bar-menu {
+    -fx-alignment: center;
+    -fx-spacing: 5px;
+    -fx-pref-height: 40px;
+    -fx-max-height: 40px;
+    -fx-pref-width: 500px;
+    -fx-min-width: 500px;
+}
+
+.top-bar-menu:hover {
+    -fx-background-color: secondary;
+}
+
+.top-bar-menu .label, .side-bar-menu SVGPath {
+    -fx-fill: white;
+    -fx-text-fill: white;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+.top-bar-menu:hover .label, .side-bar-menu:hover SVGPath {
+    -fx-fill: primary;
+    -fx-text-fill: primary;
+}
+
+.top-bar-menu.active {
+    -fx-background-color: secondary;
+}
+
+.top-bar-menu.active .label, .side-bar-menu.active SVGPath{
+    -fx-fill: primary;
+    -fx-text-fill: primary;
+}
+/* -------------------------------------------------------------------------------------------------------------*/
+/* ----------------------------------------- Окно создания/редактирования ------------------------------------- */
+.edit-window {
+    -fx-background-color: secondary;
+    -fx-pref-width: 650px;
+}
+.edit-window-side {
+    -fx-background-color: primary;
+    -fx-pref-width: 120px;
+    -fx-alignment: center;
+}
+
+.edit-window-side SVGPath{
+    -fx-fill: secondary;
+}
+.edit-window-header {
+    -fx-pref-height: 50px;
+    -fx-padding: 10px;
+    -fx-text-wrap: true;
+}
+.edit-window-message {
+    -fx-pref-height: 50px;
+    -fx-padding: 0 10 0 10;
+    -fx-text-wrap: true;
+}
+
+.edit-window-content {
+     -fx-padding: 10px;
+     -fx-text-wrap: true;
+ }
+
+ .edit-window-button {
+    -fx-pref-height: 50px;
+    -fx-padding: 10px;
+    -fx-alignment: bottom-right;
+    -fx-spacing: 10px;
+ }
+
+  .edit-window-button Button{
+     -fx-pref-width: 150px;
+  }
+/* -------------------------------------------------------------------------------------------------------------*/
+/* ----------------------------------------------- Окно просмотра --------------------------------------------- */
+.view-window {
+    -fx-background-color: secondary;
+    -fx-pref-width: 650px;
+}
+.view-window-side {
+    -fx-background-color: primary;
+    -fx-pref-width: 120px;
+    -fx-alignment: center;
+}
+
+.view-window-side SVGPath{
+    -fx-fill: secondary;
+}
+.view-window-header {
+    -fx-pref-height: 50px;
+    -fx-padding: 10px;
+    -fx-text-wrap: true;
+}
+.view-window-message {
+    -fx-pref-height: 50px;
+    -fx-padding: 10px;
+    -fx-text-wrap: true;
+}
+
+.view-window-content {
+    -fx-pref-height: 500px;
+    -fx-padding: 10px;
+    -fx-text-wrap: true;
+ }
+
+ .view-window-button {
+    -fx-padding: 10px;
+    -fx-alignment: bottom-right;
+    -fx-spacing: 10px;
+ }
+
+ .view-window-button Button{
+     -fx-pref-width: 150px;
+ }
+/* -------------------------------------------------------------------------------------------------------------*/
+/* ----------------------------------------------- Диалоговое окно -------------------------------------------- */
+.dialog {
+    -fx-pref-width: 600px;
+    -fx-background-color: secondary-light;
+}
+.dialog-icon {
+    -fx-pref-width: 160px;
+    -fx-alignment: center;
+    -fx-background-color: primary;
+}
+.dialog-icon SVGPath {
+    -fx-fill: secondary-light;
+}
+
+.dialog-body {
+    -fx-padding: 20px;
+    -fx-alignment: center-left;
+}
+
+.dialog-title {
+    -fx-font-size: 24px;
+}
+
+.dialog-message-box {
+    -fx-padding: 20 0 20 0;
+}
+
+.dialog-message-box Label {
+    -fx-font-size: 18px;
+}
+
+.dialog-button-box {
+    -fx-alignment: center-right;
+}
+
+.dialog-input-box {
+    -fx-padding: 10 0 0 0;
+}
+.dialog-input-box ComboBox{
+    -fx-pref-width: 380px;
+    -fx-max-width: 5000px;
+}
+/* -------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------- Диалоговое окно ошибок ----------------------------------------- */
+.error-dialog {
+    -fx-pref-width: 600px;
+    -fx-pref-height: 800px;
+    -fx-background-color: secondary-light;
+}
+.error-dialog-icon {
+    -fx-pref-width: 160px;
+    -fx-alignment: center;
+    -fx-background-color: primary;
+}
+.error-dialog-icon SVGPath {
+    -fx-fill: secondary-light;
+}
+
+.error-dialog-body {
+    -fx-padding: 20px;
+    -fx-alignment: center-left;
+}
+
+.error-dialog-title {
+    -fx-font-size: 24px;
+}
+
+.error-dialog-message-box {
+    -fx-padding: 20 0 20 0;
+}
+
+.error-dialog-message-box Label {
+    -fx-font-size: 18px;
+}
+
+.error-dialog-button-box {
+    -fx-alignment: center-right;
+}
+
+.error-dialog-input-box {
+    -fx-padding: 10 0 0 0;
+}
+.error-dialog-input-box ComboBox{
+    -fx-pref-width: 380px;
+    -fx-max-width: 5000px;
+}
+/* -------------------------------------------------------------------------------------------------------------*/
+
+/* ------------------------------------------------- Окно детализации ----------------------------------------- */
+.details-header{
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-background-color: primary-light;
+}
+
+.details-header-button-box{
+    -fx-padding: 10px;
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------------------------------------------*/
+.al-center-left {
+    -fx-alignment: center-left;
+}
+
+.sp-5 {
+    -fx-spacing: 5px;
+}
+
+.sp-10 {
+    -fx-spacing: 10px;
+}
+
+.width-120 {
+    -fx-pref-width: 120px;
+}
+
+.width-240 {
+    -fx-pref-width: 240px;
+    -fx-max-width: 360px;
+}
+
+.text-field, .password-field, .button {
+    -fx-background-color: secondary-light;
+    -fx-border-style: solid;
+    -fx-border-color: primary;
+}
+
+.button:hover, .button:focused {
+    -fx-background-color: primary;
+    -fx-text-fill: secondary-light;
+}
+.padding-5 {
+    -fx-padding: 0 5 0 5;
+}
+
+.padding-all-5 {
+    -fx-padding: 5;
+}
