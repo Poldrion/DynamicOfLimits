@@ -247,7 +247,6 @@
     -fx-max-width: 5000px;
 }
 /* -------------------------------------------------------------------------------------------------------------*/
-
 /* ------------------------------------------------- Окно детализации ----------------------------------------- */
 .details-header{
     -fx-padding: 10px;
@@ -258,11 +257,160 @@
 .details-header-button-box{
     -fx-padding: 10px;
 }
+/* -------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------ Настройка таблицы ----------------------------------------- */
+/*-------- настрока внешнего вида таблиц ---------*/
+.table-view {
+    -fx-background-color: secondary-light;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: primary;
+}
+.table-view .column-header, .table-view .filler {
+    -fx-border-width: 1 1 1 1;
+    -fx-background-color: transparent;
+    -fx-border-color: secondary;
+    -fx-border-insets: 1 1 1 1;
+}
+/* -------- выделенная строка таблицы ----------------------*/
+.table-view:focused .table-row-cell:filled:focused:selected .table-cell:filled:focused:selected {
+    -fx-background-color: primary-light;
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 10 2 10px;
+}
+.table-row-cell: hover{
+    -fx-background-color: primary-light;
+    -fx-text-background-color: red;
+}
+.table-row-cell: odd{
+    -fx-background-color: secondary;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell: even{
+    -fx-background-color: secondary-light;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-cell: selected{
+    -fx-background-color: primary-light;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+/*--------- скролл-бар --------------------*/
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  linear-gradient(to bottom, primary, secondary);
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  linear-gradient(to right, primary, secondary);
+}
+/* -------------------------------------------------------------------------------------------------------------*/
+/* -------------------------------------------- Настройка date-picker ----------------------------------------- */
+/*-----------------------------------------
+Customize the right button background color
+-------------------------------------------*/
+.date-picker .arrow-button {
+    -fx-background-color: primary;
+    -fx-background-radius: 0;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: primary-light;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: secondary-light;
+}
 
 
+/*-----------------------------------------
+Customize left and right arrow
+-------------------------------------------*/
+.date-picker-popup .spinner .button .left-arrow, .date-picker-popup .spinner .button .right-arrow {
+    -fx-background-color: secondary-light;
+}
 
+.login-view {
+    -fx-pref-width: 480px;
+    -fx-background-color: secondary;
+}
 
+.login-title {
+    -fx-alignment: center-left;
+    -fx-padding: 16px;
+    -fx-background-color: primary;
+}
 
+.login-title .header {
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+}
+
+/*-----------------------------------------
+Customize popup content
+-------------------------------------------*/
+.date-picker .cell {
+    -fx-background-color: secondary-light;
+}
+
+.date-picker .cell:hover {
+    -fx-background-color: primary;
+}
+
+.date-picker .cell:focused {
+    -fx-background-color: primary;
+}
+/*-----------------------------------------
+Customize the selected cell
+-------------------------------------------*/
+.date-picker .selected {
+    -fx-background-color: primary;
+    -fx-text-fill: secondary-light;
+}
+
+.date-picker .selected:focused {
+    -fx-background-color: primary;
+    -fx-text-fill: secondary-light;
+}
+
+.date-picker-popup {
+    -fx-border-color: transparent;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: primary;
+}
+
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: secondary-light;
+}
+
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: secondary;
+}
+
+.date-picker-popup .button {
+    -fx-background-color: primary;
+}
 /* -------------------------------------------------------------------------------------------------------------*/
 .al-center-left {
     -fx-alignment: center-left;
@@ -288,6 +436,14 @@
 .text-field, .password-field, .button {
     -fx-background-color: secondary-light;
     -fx-border-style: solid;
+    -fx-border-radius: 5px;
+    -fx-border-color: primary;
+}
+
+.combo-box {
+    -fx-background-color: secondary-light;
+    -fx-border-style: solid;
+    -fx-border-radius: 5px;
     -fx-border-color: primary;
 }
 

@@ -15,24 +15,23 @@ public class DataInitializer {
     @Bean
     public CommandLineRunner getCommandLineRunner() {
         return args -> {
-            accountRepository.deleteAll();
-
-            Account admin = new Account();
-            admin.setLoginId("admin");
-            admin.setName("admin");
-            admin.setRole(Account.Role.Admin);
-            admin.setPassword("admin");
-
-            accountRepository.save(admin);
-
-
+//            accountRepository.deleteAll();
+//
+//            Account admin = new Account();
+//            admin.setLoginId("admin");
+//            admin.setName("admin");
+//            admin.setRole(Account.Role.Admin);
+//            admin.setPassword("admin");
+//
+//            accountRepository.save(admin);
+//
+//            Account user = new Account();
+//            user.setLoginId("KomarovAV");
+//            user.setName("KomarovAV");
+//            user.setRole(Account.Role.Admin);
+//            user.setPassword("Forto4kA");
+//
+//            accountRepository.save(user);
         };
     }
-
-//    @Bean(initMethod = "start", destroyMethod = "stop")
-//    public Server inMemoryH2DatabaseaServer() throws SQLException {
-//        return Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", "9090");
-//    }
-
-
 }

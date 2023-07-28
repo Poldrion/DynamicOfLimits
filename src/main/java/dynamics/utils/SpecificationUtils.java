@@ -17,5 +17,4 @@ public class SpecificationUtils {
                 .toArray(Predicate[]::new)
         );
     }
-
 }

@@ -15,7 +15,7 @@
    <children>
       <HBox styleClass="login-title">
          <children>
-            <Label styleClass="header" text="Вход в приложение" />
+            <Label fx:id="header" styleClass="header" text="header" />
          </children>
       </HBox>
       <VBox styleClass="login-body">
@@ -34,14 +34,14 @@
               </rowConstraints>
                <children>
                   <Label fx:id="message" GridPane.columnIndex="1" />
-                  <Label text="Пользователь" GridPane.rowIndex="1" />
-                  <Label text="Пароль" GridPane.rowIndex="2" />
-                  <TextField fx:id="loginId" promptText="Введите имя пользователя" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <PasswordField fx:id="password" promptText="Введите пароль" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="userTitle" text="userTitle" GridPane.rowIndex="1" />
+                  <Label fx:id="passwordTitle" text="passwordTitle" GridPane.rowIndex="2" />
+                  <TextField fx:id="loginId" promptText="loginId" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <PasswordField fx:id="password" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <HBox GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
-                        <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#login" styleClass="width-120" text="Вход" />
-                        <Button fx:id="closeBtn" layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onAction="#close" styleClass="width-120" text="Отмена" />
+                        <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#login" styleClass="width-120" text="loginBtn" />
+                        <Button fx:id="closeBtn" layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onAction="#close" styleClass="width-120" text="closeBtn" />
                      </children>
                      <styleClass>
                         <String fx:value="al-center-left" />

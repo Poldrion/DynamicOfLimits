@@ -1,14 +1,14 @@
 package dynamics.model.entities;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-@Data
+
 @Entity
+@Data
 @NoArgsConstructor
 @Table(name = "MoneyLimit")
 public class MoneyLimit {
@@ -16,7 +16,6 @@ public class MoneyLimit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-
     private int yearLimit;
     private BigDecimal cost = null;
     @ManyToOne

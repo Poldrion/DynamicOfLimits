@@ -2,7 +2,7 @@ spring:
   datasource:
     driverClassName: org.h2.Driver
 #    url: jdbc:h2:file://10.214.132.36/SamaraNG_/Общий ресурс подразделений СНГ/УДНГ/Общая/ПТО/Комаров А.В/db/OrganizerONVSSDB;
-    url: jdbc:h2:file:D:\Projects\JavaFX\Dynamics of limits\db\DB;
+    url: jdbc:h2:file:.\db\DB;
 #    url: jdbc:h2:~/test
     username:
     password:
@@ -10,7 +10,7 @@ spring:
       console:
         enabled: true
   jpa:
-    hibernate.ddl-auto: create
+    hibernate.ddl-auto: update
     generate-ddl: true
     show-sql: true
     properties:

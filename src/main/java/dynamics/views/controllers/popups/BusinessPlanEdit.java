@@ -21,41 +21,30 @@ import javafx.stage.Stage;
 import java.math.BigDecimal;
 import java.util.function.Consumer;
 
-import static dynamics.utils.FilePathsUtils.BUSINESS_PLAN_EDIT_FXML;
+import static dynamics.utils.FilePathConstants.BUSINESS_PLAN_EDIT_FXML;
 import static dynamics.utils.FormatUtils.formatNumber;
 import static dynamics.utils.FormatUtils.parseNumber;
 import static dynamics.utils.PropertiesUtils.GetYears;
-import static dynamics.utils.TitlesUtils.*;
+import static dynamics.utils.TitleConstants.*;
 
 public class BusinessPlanEdit {
     @FXML
-    private Label departmentComboBoxTitle;
+    private Label departmentComboBoxTitle, header, message, businessPlanCostFieldTitle, yearFieldTitle;
     @FXML
     private ComboBox<Department> departmentComboBox;
     @FXML
     private VBox departmentGroup;
 
     @FXML
-    private Label header;
-    @FXML
-    private Label message;
-
-    @FXML
-    private Label businessPlanCostFieldTitle;
-    @FXML
     private TextField businessPlanCostTF;
 
-    @FXML
-    private Label yearFieldTitle;
     @FXML
     private ComboBox<Integer> yearCB;
     @FXML
     private VBox yearGroup;
 
     @FXML
-    private Button saveBtn;
-    @FXML
-    private Button exitBtn;
+    private Button saveBtn, exitBtn;
 
     private BusinessPlan businessPlan;
     private Consumer<BusinessPlan> saveHandler;
@@ -91,7 +80,6 @@ public class BusinessPlanEdit {
         this.departmentService = departmentService;
         yearCB.getItems().addAll(GetYears());
 
-
         if (businessPlan == null) {
             header.setText(CREATE_BUSINESS_PLAN_ADD);
             this.businessPlan = new BusinessPlan();
@@ -102,19 +90,15 @@ public class BusinessPlanEdit {
             yearCB.setValue(this.businessPlan.getYearBP());
             this.changeEnable();
         }
+        settingTitles();
         departmentComboBox.getItems().addAll(departmentService.findAll());
-        departmentComboBoxTitle.setText(CREATE_BUSINESS_PLAN_DEPARTMENT_TITLE);
         departmentComboBox.setValue(this.businessPlan.getDepartment());
-        businessPlanCostFieldTitle.setText(CREATE_BUSINESS_PLAN_COST_TITLE);
+
         if (this.businessPlan.getCost() == null) {
             businessPlanCostTF.setText(formatNumber(BigDecimal.ZERO));
         } else {
             businessPlanCostTF.setText(formatNumber(this.businessPlan.getCost()));
         }
-        yearFieldTitle.setText(CREATE_BUSINESS_PLAN_YEAR_TITLE);
-
-        saveBtn.setText(CREATE_BUSINESS_PLAN_SAVE_BTN);
-        exitBtn.setText(CREATE_BUSINESS_PLAN_EXIT_BTN);
     }
 
     @FXML
@@ -154,6 +138,14 @@ public class BusinessPlanEdit {
                 close();
             }
         });
+    }
+
+    private void settingTitles() {
+        departmentComboBoxTitle.setText(CREATE_BUSINESS_PLAN_DEPARTMENT_TITLE);
+        businessPlanCostFieldTitle.setText(CREATE_BUSINESS_PLAN_COST_TITLE);
+        yearFieldTitle.setText(CREATE_BUSINESS_PLAN_YEAR_TITLE);
+        saveBtn.setText(CREATE_BUSINESS_PLAN_SAVE_BTN);
+        exitBtn.setText(CREATE_BUSINESS_PLAN_EXIT_BTN);
     }
 }
 

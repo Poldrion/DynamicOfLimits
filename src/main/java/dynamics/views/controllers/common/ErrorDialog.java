@@ -9,9 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
-import static dynamics.utils.FilePathsUtils.ERROR_DIALOG_FXML;
-import static dynamics.utils.TitlesUtils.ERROR_DIALOG_CLOSE_BTN;
-import static dynamics.utils.TitlesUtils.ERROR_DIALOG_OK_BTN;
+import static dynamics.utils.FilePathConstants.ERROR_DIALOG_FXML;
+import static dynamics.utils.TitleConstants.ERROR_DIALOG_CLOSE_BTN;
+import static dynamics.utils.TitleConstants.ERROR_DIALOG_OK_BTN;
 
 public class ErrorDialog {
 
@@ -20,9 +20,7 @@ public class ErrorDialog {
     @FXML
     private TextArea message;
     @FXML
-    private Button okBtn;
-    @FXML
-    private Button closeBtn;
+    private Button okBtn, closeBtn;
 
     private Stage stage;
 
@@ -62,7 +60,7 @@ public class ErrorDialog {
         public ErrorDialog build() {
 
             try {
-                Stage stage = new Stage(/*StageStyle.UNDECORATED*/);
+                Stage stage = new Stage();
                 FXMLLoader loader = new FXMLLoader(ErrorDialog.class.getClassLoader().getResource(ERROR_DIALOG_FXML));
                 Parent view = loader.load();
                 Scene scene = new Scene(view);
@@ -98,7 +96,7 @@ public class ErrorDialog {
 
     }
 
-    public static interface ActionListener {
+    public interface ActionListener {
         void doAction();
     }
 

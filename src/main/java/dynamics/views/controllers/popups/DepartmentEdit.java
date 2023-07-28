@@ -16,27 +16,16 @@ import javafx.stage.Stage;
 
 import java.util.function.Consumer;
 
-import static dynamics.utils.FilePathsUtils.*;
-import static dynamics.utils.TitlesUtils.*;
+import static dynamics.utils.FilePathConstants.DEPARTMENT_EDIT_FXML;
+import static dynamics.utils.TitleConstants.*;
 
 public class DepartmentEdit {
     @FXML
     private TextField departmentNameTF;
-
-
     @FXML
-    private Label header;
-
+    private Label header, message, nameFieldTitle;
     @FXML
-    private Label message;
-
-    @FXML
-    private Label nameFieldTitle;
-
-    @FXML
-    private Button saveBtn;
-    @FXML
-    private Button exitBtn;
+    private Button saveBtn, exitBtn;
 
     private Department department;
     private Consumer<Department> saveHandler;
@@ -77,11 +66,8 @@ public class DepartmentEdit {
             header.setText(CREATE_DEPARTMENT_HEADER_EDIT);
             this.department = department;
         }
-        nameFieldTitle.setText(CREATE_DEPARTMENT_NAME_FIELD_TITLE);
-        departmentNameTF.setPromptText(CREATE_DEPARTMENT_TEXT_FIELD_PROMPT_TEXT);
+        settingTitles();
         departmentNameTF.setText(this.department.getName());
-        saveBtn.setText(CREATE_DEPARTMENT_SAVE_BTN);
-        exitBtn.setText(CREATE_DEPARTMENT_EXIT_BTN);
     }
 
     @FXML
@@ -108,7 +94,6 @@ public class DepartmentEdit {
         }
     }
 
-
     private void attachEvent() {
         saveBtn.getScene().setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.SPACE) {
@@ -121,5 +106,10 @@ public class DepartmentEdit {
         });
     }
 
-
+    private void settingTitles() {
+        nameFieldTitle.setText(CREATE_DEPARTMENT_NAME_FIELD_TITLE);
+        departmentNameTF.setPromptText(CREATE_DEPARTMENT_TEXT_FIELD_PROMPT_TEXT);
+        saveBtn.setText(CREATE_DEPARTMENT_SAVE_BTN);
+        exitBtn.setText(CREATE_DEPARTMENT_EXIT_BTN);
+    }
 }

@@ -1,13 +1,13 @@
 package dynamics.utils;
 
-import static dynamics.utils.TitlesUtils.*;
+import static dynamics.utils.TitleConstants.*;
 
 public enum Contents {
     Main(MAIN_CONTENT_TITLE),
     Details(DETAILS_CONTENT_TITLE),
     BusinessPlan(BUSINESS_PLAN_CONTENT_TITLE);
 
-    private String title;
+    private final String title;
 
     Contents(String title) {
         this.title = title;

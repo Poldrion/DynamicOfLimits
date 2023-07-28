@@ -2,14 +2,16 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<HBox styleClass="edit-window" stylesheets="@../../style/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dynamics.views.controllers.popups.MoneyLimitEdit">
+<HBox styleClass="edit-window" stylesheets="@../../style/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dynamics.views.controllers.popups.CorrectionsEdit">
    <children>
       <VBox maxHeight="1.7976931348623157E308" styleClass="edit-window-side">
          <children>
@@ -42,7 +44,7 @@
                      <children>
                         <VBox fx:id="departmentGroup">
                            <children>
-                              <Label fx:id="departmentComboBoxTitle" text="departmentComboBoxTitle" />
+                              <Label fx:id="departmentComboBoxTitle" text="departmentTitle" />
                               <ComboBox fx:id="departmentComboBox" maxWidth="1.7976931348623157E308" />
                            </children>
                         </VBox>
@@ -52,10 +54,34 @@
                               <ComboBox fx:id="yearCB" maxWidth="1.7976931348623157E308" />
                            </children>
                         </VBox>
-                        <VBox styleClass="sp-5">
+                        <VBox layoutX="10.0" layoutY="62.0" styleClass="sp-5">
                            <children>
-                              <Label fx:id="limitCostFieldTitle" text="limitCostFieldTitle" />
-                              <TextField fx:id="limitCostTF" maxWidth="1.7976931348623157E308" promptText="limitCostTF" />
+                              <Label fx:id="dateCreateTitle" text="dateCreateTitle" />
+                              <DatePicker fx:id="dateCreateDP" maxWidth="1.7976931348623157E308" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="lastCostLimitGroup" styleClass="sp-5">
+                           <children>
+                              <Label fx:id="lastCostLimitTitle" text="lastCostLimitTitle" />
+                              <TextField fx:id="lastCostLimitTF" maxWidth="1.7976931348623157E308" promptText="Prompt text" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="119.0" styleClass="sp-5">
+                           <children>
+                              <Label fx:id="costTitle" text="costTitle" />
+                              <TextField fx:id="costTF" maxWidth="1.7976931348623157E308" promptText="Prompt text" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="178.0" styleClass="sp-5">
+                           <children>
+                              <Label fx:id="currentCostLimitTitle" text="currentCostLimitTitle" />
+                              <TextField fx:id="currentCostLimitTF" maxWidth="1.7976931348623157E308" promptText="Prompt text" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="296.0" styleClass="sp-5">
+                           <children>
+                              <Label fx:id="remarkTitle" text="remarkTitle" />
+                              <TextArea fx:id="remark" prefHeight="68.0" prefWidth="510.0" />
                            </children>
                         </VBox>
                      </children>
@@ -64,8 +90,8 @@
             </HBox>
             <HBox styleClass="edit-window-button">
                <children>
-                  <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#save" text="saveBtn" />
-                  <Button fx:id="exitBtn" layoutX="350.0" layoutY="20.0" mnemonicParsing="false" onAction="#close" text="exitBtn" />
+                  <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#save" text="Save" />
+                  <Button fx:id="exitBtn" layoutX="350.0" layoutY="20.0" mnemonicParsing="false" onAction="#close" text="Exit" />
                </children>
             </HBox>
          </children>

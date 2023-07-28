@@ -18,9 +18,9 @@ import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 
-import static dynamics.utils.FilePathsUtils.APPLICATION_ICON;
-import static dynamics.utils.FilePathsUtils.MAIN_FRAME_FXML;
-import static dynamics.utils.TitlesUtils.APPLICATION_TITLE_NAME;
+import static dynamics.utils.FilePathConstants.APPLICATION_ICON;
+import static dynamics.utils.FilePathConstants.MAIN_FRAME_FXML;
+import static dynamics.utils.TitleConstants.*;
 
 @Controller
 public class MainFrameController {
@@ -36,6 +36,7 @@ public class MainFrameController {
 
     @FXML
     private void initialize() {
+        settingTitles();
         loadView(Contents.Main);
     }
 
@@ -55,7 +56,7 @@ public class MainFrameController {
         }
     }
 
-    private void loadView(Contents content) {
+    private void loadView(@SuppressWarnings("SameParameterValue") Contents content) {
         try {
             for (Node node : topBar.getChildren()) {
                 node.getStyleClass().remove("active");
@@ -80,5 +81,11 @@ public class MainFrameController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void settingTitles() {
+        generalInformationTitle.setText(GENERAL_INFORMATION_TITLE);
+        businessPlanTitle.setText(BUSINESS_PLAN_TITLE);
+        detailInformationTitle.setText(DETAIL_INFORMATION_TITLE);
     }
 }

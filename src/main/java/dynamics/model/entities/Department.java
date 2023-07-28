@@ -1,12 +1,11 @@
 package dynamics.model.entities;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
 @Entity
+@Data
 @NoArgsConstructor
 @Table(name = "Department")
 public class Department {
@@ -14,13 +13,11 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int id;
-
     private String name;
 
     public Department(String name) {
         this.name = name;
     }
-
 
     @Override
     public String toString() {

@@ -1,22 +1,20 @@
 package dynamics.model.entities;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 @Data
-@Entity
 @NoArgsConstructor
+@Entity
 @Table(name = "BusinessPlan")
 public class BusinessPlan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Department department;

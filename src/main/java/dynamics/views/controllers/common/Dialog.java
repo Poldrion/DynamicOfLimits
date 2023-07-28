@@ -9,21 +9,16 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
-import static dynamics.utils.FilePathsUtils.DIALOG_FXML;
-import static dynamics.utils.TitlesUtils.DIALOG_CLOSE_BTN;
-import static dynamics.utils.TitlesUtils.DIALOG_OK_BTN;
+import static dynamics.utils.FilePathConstants.DIALOG_FXML;
+import static dynamics.utils.TitleConstants.DIALOG_CLOSE_BTN;
+import static dynamics.utils.TitleConstants.DIALOG_OK_BTN;
 
 public class Dialog {
 
     @FXML
-    private Label title;
+    private Label title, message;
     @FXML
-    private Label message;
-    @FXML
-    private Button okBtn;
-    @FXML
-    private Button closeBtn;
-
+    private Button okBtn, closeBtn;
 
     private Stage stage;
 
@@ -62,7 +57,7 @@ public class Dialog {
 
         public Dialog build() {
             try {
-                Stage stage = new Stage(/*StageStyle.UNDECORATED*/);
+                Stage stage = new Stage();
                 FXMLLoader loader = new FXMLLoader(Dialog.class.getClassLoader().getResource(DIALOG_FXML));
                 Parent view = loader.load();
                 Scene scene = new Scene(view);
@@ -97,7 +92,7 @@ public class Dialog {
         }
     }
 
-    public static interface ActionListener {
+    public interface ActionListener {
         void doAction();
     }
 

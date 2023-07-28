@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
 
-import static dynamics.utils.TitlesUtils.*;
+import static dynamics.utils.TitleConstants.*;
 
 @Service
 public class MoneyLimitService {
@@ -39,7 +39,7 @@ public class MoneyLimitService {
                 .toList();
     }
 
-    public MoneyLimit getMoneyLimitByDepartmentAndYear(Department department, Integer year) {
+    public MoneyLimit findMoneyLimitByDepartmentAndYear(Department department, Integer year) {
         List<? extends MoneyLimit> temp = findAll().stream()
                 .filter(x -> x.getDepartment().equals(department))
                 .filter(x -> x.getYearLimit() == year)
@@ -48,16 +48,17 @@ public class MoneyLimitService {
         return temp.get(0);
     }
 
-    public BigDecimal getGeneralMoneyLimitByYear(Integer year){
+    public BigDecimal getGeneralMoneyLimitByYear(Integer year) {
         List<? extends MoneyLimit> moneyLimitsByYear = findAll().stream()
                 .filter(x -> x.getYearLimit() == year)
                 .toList();
         if (moneyLimitsByYear.isEmpty()) return BigDecimal.ZERO;
 
         Function<MoneyLimit, BigDecimal> totalMapper = MoneyLimit::getCost;
-        return moneyLimitsByYear.stream().map(totalMapper).reduce(BigDecimal.ZERO,BigDecimal::add);
+        return moneyLimitsByYear.stream().map(totalMapper).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
+    @SuppressWarnings("deprecation")
     public void save(MoneyLimit moneyLimit) {
         if (StringUtils.isEmpty(moneyLimit.getDepartment())) {
             throw new DynamicsException(CREATE_MONEY_LIMIT_EMPTY_DEPARTMENT_ERROR);
@@ -71,6 +72,7 @@ public class MoneyLimitService {
         if (validateMoneyLimit(moneyLimit)) moneyLimitRepository.save(moneyLimit);
     }
 
+    @SuppressWarnings("deprecation")
     public void saveChangeLimit(MoneyLimit moneyLimit) {
         if (StringUtils.isEmpty(moneyLimit.getDepartment())) {
             throw new DynamicsException(CREATE_MONEY_LIMIT_EMPTY_DEPARTMENT_ERROR);

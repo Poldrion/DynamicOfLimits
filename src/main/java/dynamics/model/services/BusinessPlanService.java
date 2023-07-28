@@ -11,7 +11,7 @@ import org.springframework.util.StringUtils;
 import java.util.Collection;
 import java.util.List;
 
-import static dynamics.utils.TitlesUtils.*;
+import static dynamics.utils.TitleConstants.*;
 
 @Service
 public class BusinessPlanService {
@@ -29,7 +29,7 @@ public class BusinessPlanService {
                 .toList();
     }
 
-    public BusinessPlan getBusinessPlanByDepartmentAndYear(Department department, Integer year) {
+    public BusinessPlan findBusinessPlanByDepartmentAndYear(Department department, Integer year) {
         List<? extends BusinessPlan> temp = findAll().stream()
                 .filter(x -> x.getDepartment().equals(department))
                 .filter(x -> x.getYearBP() == year)
@@ -38,6 +38,7 @@ public class BusinessPlanService {
         return temp.get(0);
     }
 
+    @SuppressWarnings("deprecation")
     public void save(BusinessPlan businessPlan) {
          if (StringUtils.isEmpty(businessPlan.getDepartment())) {
             throw new DynamicsException(CREATE_BUSINESS_PLAN_EMPTY_DEPARTMENT_ERROR);
@@ -51,6 +52,7 @@ public class BusinessPlanService {
         if (validateBusinessPlan(businessPlan)) businessPlanRepository.save(businessPlan);
     }
 
+    @SuppressWarnings("deprecation")
     public void saveChangeBusinessPlan(BusinessPlan businessPlan) {
         if (StringUtils.isEmpty(businessPlan.getDepartment())) {
             throw new DynamicsException(CREATE_BUSINESS_PLAN_EMPTY_DEPARTMENT_ERROR);

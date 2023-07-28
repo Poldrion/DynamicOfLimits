@@ -15,7 +15,7 @@
                <children>
                   <VBox id="Main" fx:id="generalInformation" styleClass="top-bar-menu">
                      <children>
-                        <Label fx:id="generalInformationTitle" text="Общая информация" VBox.vgrow="ALWAYS">
+                        <Label fx:id="generalInformationTitle" text="generalInformationTitle" VBox.vgrow="ALWAYS">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
@@ -30,7 +30,7 @@
                   </VBox>
                   <VBox id="Details" fx:id="detailInformation" layoutX="10.0" layoutY="10.0" styleClass="top-bar-menu">
                      <children>
-                        <Label fx:id="detailInformationTitle" text="Детализация по структурному подразделению" VBox.vgrow="ALWAYS">
+                        <Label fx:id="detailInformationTitle" text="detailInformationTitle" VBox.vgrow="ALWAYS">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
@@ -42,7 +42,7 @@
                   </VBox>
                   <VBox id="BusinessPlan" fx:id="businessPlan" layoutX="310.0" layoutY="10.0" styleClass="top-bar-menu">
                      <children>
-                        <Label fx:id="businessPlanTitle" text="Бизнес-план" VBox.vgrow="ALWAYS">
+                        <Label fx:id="businessPlanTitle" text="businessPlanTitle" VBox.vgrow="ALWAYS">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>

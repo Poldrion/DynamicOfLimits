@@ -1,12 +1,13 @@
 package dynamics.model.entities;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Account {
 
     @Id
@@ -17,6 +18,6 @@ public class Account {
 
 
     public enum Role {
-        Admin, User
+        Admin
     }
 }

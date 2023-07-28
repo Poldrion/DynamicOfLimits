@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CorrectionsRepository extends BaseRepository<Corrections,Long>, JpaSpecificationExecutor<Corrections> {
+public interface CorrectionsRepository extends BaseRepository<Corrections, Long>, JpaSpecificationExecutor<Corrections> {
 }

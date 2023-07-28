@@ -17,7 +17,7 @@
       </VBox>
       <VBox prefHeight="200.0" styleClass="error-dialog-body" HBox.hgrow="ALWAYS">
          <children>
-            <Label fx:id="title" styleClass="error-dialog-title" text="Label" />
+            <Label fx:id="title" styleClass="error-dialog-title" text="title" />
             <HBox VBox.vgrow="ALWAYS">
                <children>
                   <TextArea fx:id="message" prefHeight="200.0" prefWidth="200.0" wrapText="true" HBox.hgrow="ALWAYS" />
@@ -29,8 +29,8 @@
             </HBox>
             <HBox>
                <children>
-                  <Button fx:id="okBtn" mnemonicParsing="false" styleClass="width-120" text="OK" />
-                  <Button fx:id="closeBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancel" styleClass="width-120" text="Отмена" />
+                  <Button fx:id="okBtn" mnemonicParsing="false" styleClass="width-120" text="okBtn" />
+                  <Button fx:id="closeBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancel" styleClass="width-120" text="closeBtn" />
                </children>
                <styleClass>
                   <String fx:value="sp-10" />

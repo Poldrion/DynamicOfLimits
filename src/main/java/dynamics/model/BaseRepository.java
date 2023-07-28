@@ -8,6 +8,5 @@ import java.util.Map;
 
 @NoRepositoryBean
 public interface BaseRepository<E, ID> extends JpaRepository<E, ID> {
-
     List<E> findByQuery(String jpql, Map<String, Object> params);
 }

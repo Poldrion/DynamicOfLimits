@@ -16,20 +16,15 @@ import javafx.stage.Stage;
 
 import java.util.function.Consumer;
 
-import static dynamics.utils.FilePathsUtils.DEPARTMENT_VIEW_FXML;
-import static dynamics.utils.TableViewUtils.SettingsPlaceholder;
-import static dynamics.utils.TitlesUtils.*;
+import static dynamics.utils.FilePathConstants.DEPARTMENT_VIEW_FXML;
+import static dynamics.utils.TableViewUtils.SettingPlaceholder;
+import static dynamics.utils.TitleConstants.*;
 
 public class DepartmentView {
-
-
     @FXML
     private TableView<Department> departmentTableView;
     @FXML
-    private TableColumn<Department, String> departmentCol;
-    @FXML
-    private TableColumn<Department, String> idCol;
-
+    private TableColumn<Department, String> idCol, departmentCol;
     @FXML
     private Label header;
     @FXML
@@ -38,7 +33,6 @@ public class DepartmentView {
     private Department department;
     private DepartmentService departmentService;
     private Consumer<Department> saveHandler;
-
 
     public static void viewDepartment(Consumer<Department> saveHandler, DepartmentService departmentService) {
         try {
@@ -62,17 +56,27 @@ public class DepartmentView {
     private void init(Consumer<Department> saveHandler, DepartmentService departmentService) {
         this.saveHandler = saveHandler;
         this.departmentService = departmentService;
-        header.setText(VIEW_DEPARTMENT_HEADER);
-        exit.setText(VIEW_DEPARTMENT_EXIT_BTN);
         departmentTableView.getItems().addAll(departmentService.findAll());
-        idCol.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getId())));
-        departmentCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
-        SettingsPlaceholder(departmentTableView);
+        settingTitles();
+        SettingPlaceholder(departmentTableView);
+        settingTableView();
         exit.setOnAction(event -> close());
     }
 
     private void close() {
         departmentTableView.getScene().getWindow().hide();
+    }
+
+    private void settingTitles() {
+        header.setText(VIEW_DEPARTMENT_HEADER);
+        exit.setText(VIEW_DEPARTMENT_EXIT_BTN);
+        idCol.setText(VIEW_DEPARTMENT_ID_COL_TITLE);
+        departmentCol.setText(VIEW_DEPARTMENT_DEPARTMENT_COL_TITLE);
+    }
+
+    private void settingTableView() {
+        idCol.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getId())));
+        departmentCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
     }
 
 

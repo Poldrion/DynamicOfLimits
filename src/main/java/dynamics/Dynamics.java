@@ -10,7 +10,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import java.io.IOException;
 @Configuration
 @SpringBootApplication
 @EnableJpaRepositories(repositoryBaseClass = BaseRepositoryImpl.class)
@@ -19,17 +18,17 @@ public class Dynamics extends Application {
     private static ConfigurableApplicationContext applicationContext;
 
     @Override
-    public void init() throws Exception {
+    public void init() {
         applicationContext = SpringApplication.run(Dynamics.class);
     }
 
     @Override
-    public void stop() throws Exception {
+    public void stop() {
         applicationContext.close();
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         LoginController.loadView(stage);
     }
 

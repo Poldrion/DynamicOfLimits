@@ -18,8 +18,11 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-
 import java.io.IOException;
+
+import static dynamics.utils.FilePathConstants.APPLICATION_ICON;
+import static dynamics.utils.FilePathConstants.LOGIN_FXML;
+import static dynamics.utils.TitleConstants.*;
 
 @Controller
 public class LoginController {
@@ -30,13 +33,11 @@ public class LoginController {
     private LoginService loginService;
 
     @FXML
-    private Button closeBtn;
-    @FXML
-    private Button loginBtn;
+    private Button closeBtn, loginBtn;
     @FXML
     private TextField loginId;
     @FXML
-    private Label message;
+    private Label message, header, userTitle, passwordTitle;
     @FXML
     private PasswordField password;
 
@@ -64,22 +65,16 @@ public class LoginController {
     }
 
     @FXML
-    void initialize() {
+    private void initialize() {
+        settingTitles();
         loginId.setText(System.getProperty("user.name"));
         password.requestFocus();
-        password.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode() == KeyCode.ENTER) {
-                login();
-            }
-            if (keyEvent.getCode() == KeyCode.ESCAPE) {
-                close();
-            }
-        });
+        settingPasswordFieldKeyPressedEvent();
     }
 
     public static void loadView(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(LoginController.class.getClassLoader().getResource("views/Login.fxml"));
+            FXMLLoader loader = new FXMLLoader(LoginController.class.getClassLoader().getResource(LOGIN_FXML));
             loader.setControllerFactory(Dynamics.getApplicationContext()::getBean);
             Parent view = loader.load();
             Scene scene = new Scene(view);
@@ -88,13 +83,24 @@ public class LoginController {
             LoginController controller = loader.getController();
             controller.attachEvent();
 
-            stage.setTitle("Вход в приложение");
-            stage.getIcons().add(new Image("images/appIcon.png"));
+            stage.setTitle(LOGIN_WINDOW_TITLE);
+            stage.getIcons().add(new Image(APPLICATION_ICON));
             stage.centerOnScreen();
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void settingPasswordFieldKeyPressedEvent() {
+        password.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                login();
+            }
+            if (keyEvent.getCode() == KeyCode.ESCAPE) {
+                close();
+            }
+        });
     }
 
     private void attachEvent() {
@@ -111,6 +117,16 @@ public class LoginController {
                 close();
             }
         });
+    }
+
+    private void settingTitles() {
+        header.setText(LOGIN_WINDOW_HEADER_TITLE);
+        userTitle.setText(LOGIN_WINDOW_USER_TITLE);
+        passwordTitle.setText(LOGIN_WINDOW_PASSWORD_TITLE);
+        loginId.setPromptText(LOGIN_WINDOW_LOGIN_ID_PROMPT);
+        password.setPromptText(LOGIN_WINDOW_PASSWORD_PROMPT);
+        loginBtn.setText(LOGIN_WINDOW_LOGIN_BTN_TITLE);
+        closeBtn.setText(LOGIN_WINDOW_CLOSE_BTN_TITLE);
     }
 
 }

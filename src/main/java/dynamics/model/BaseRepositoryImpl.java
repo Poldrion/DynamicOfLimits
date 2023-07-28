@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class BaseRepositoryImpl<E, ID> extends SimpleJpaRepository<E, ID> implements BaseRepository<E, ID> {
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public BaseRepositoryImpl(JpaEntityInformation<E, ?> entityInformation, EntityManager entityManager) {
         super(entityInformation, entityManager);
