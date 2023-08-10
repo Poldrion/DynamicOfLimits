@@ -62,4 +62,8 @@ public class CorrectionsService {
     public void delete(Long id) {
         correctionsRepository.deleteById(id);
     }
+
+    public int getCountCorrectionsByDepartmentAndYear(Department department, int year) {
+        return findByDepartmentAndYear(department, year).size() - 1;
+    }
 }

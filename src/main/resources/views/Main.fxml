@@ -80,7 +80,7 @@
                         </VBox>
                         <VBox layoutX="10.0" layoutY="544.0">
                            <children>
-                              <Label fx:id="correctionGroupTitle" maxWidth="1.7976931348623157E308" text="Корректировки">
+                              <Label fx:id="correctionGroupTitle" maxWidth="1.7976931348623157E308" text="corrections">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -162,6 +162,7 @@
                             <TableColumn fx:id="businessPlanCol" prefWidth="75.0" text="businessPlanCol" />
                               <TableColumn fx:id="currentLimitCol" prefWidth="75.0" text="currentLimitCol" />
                               <TableColumn fx:id="percentCol" maxWidth="80.0" minWidth="80.0" resizable="false" text="percentCol" />
+                              <TableColumn fx:id="countCorrections" maxWidth="80.0" minWidth="80.0" resizable="false" text="countCorCol" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -181,6 +182,7 @@
                               <TableColumn fx:id="departmentWithoutLimitCol" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="departmentWithoutLimitCol" />
                               <TableColumn fx:id="businessPlanWithoutLimitCol" prefWidth="75.0" text="businessPlanWithoutLimitCol" />
                               <TableColumn fx:id="nullableLimitCol" prefWidth="75.0" text="nullableLimitCol" />
+                              <TableColumn fx:id="countCorrectionsWithoutLimit" maxWidth="80.0" minWidth="80.0" resizable="false" text="countCorCol" />
                            </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -40,6 +40,7 @@ public class TitleConstants {
     public static final String BUSINESS_PLAN_COL_TITLE = "Бизнес-план";
     public static final String CURRENT_LIMIT_COL_TITLE = "Текущий лимит";
     public static final String PERCENT_COL_TITLE = "%";
+    public static final String COUNT_CORRECTIONS = "Кор.";
     public static final String DEPARTMENT_WITHOUT_LIMIT_COL_TITLE = "СП";
     public static final String NULLABLE_LIMIT_COL_TITLE = "Текущий лимит";
     public static final String BUSINESS_PLAN_WITHOUT_LIMIT_COL_TITLE = "Бизнес-план";
@@ -49,7 +50,7 @@ public class TitleConstants {
     public static final String DETAILS_YEAR_TITLE = "Год";
     public static final String DETAILS_CORRECTIONS_TITLE = "Корректировки";
     public static final String DETAILS_CORRECTIONS_ADD_BTN_TITLE = "Создать кор-ку";
-    public static final String DETAILS_CORRECTIONS_DELETE_BTN_TITLE = "Удалить кор-ку";
+    public static final String DETAILS_CORRECTIONS_DELETE_BTN_TITLE = "Удалить последнюю кор-ку";
     public static final String DETAILS_CORRECTIONS_EDIT_BTN_TITLE = "Изменить кор-ку";
     public static final String DETAILS_DATE_CORRECTIONS_COL_TITLE = "Дата создания";
     public static final String DETAILS_LOST_COST_LIMIT_COL_TITLE = "Лимит до кор-ки";

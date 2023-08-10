@@ -108,8 +108,11 @@ public class DetailsController {
 
     @FXML
     private void deleteCorrection() {
-        Corrections correction = detailsTableView.getSelectionModel().getSelectedItem();
+        Corrections correction = detailsTableView.getItems().get(detailsTableView.getItems().size() - 1);
         if (correction != null) {
+            MoneyLimit limit = moneyLimitService.findMoneyLimitByDepartmentAndYear(correction.getDepartment(), correction.getYearCorrections());
+            limit.setCost(correction.getLastCostLimit());
+            saveChangeLimit(limit);
             correctionsService.delete(correction.getId());
             reload();
         }
@@ -273,7 +276,7 @@ public class DetailsController {
                 dataText.setStyle("-fx-font: 10 arial;");
 //                dataText.setTranslateY(dataText.getBoundsInParent().getHeight());
                 bar.getChildren().add(dataText);
-                Translate translate = new Translate(-(bar.getBoundsInParent().getMaxY()*1.5), 0);
+                Translate translate = new Translate(-(bar.getBoundsInParent().getMaxY() * 1.5), 0);
                 dataText.getTransforms().add(translate);
             }
         }
@@ -307,7 +310,7 @@ public class DetailsController {
                 bar.getChildren().add(dataText);
                 //TODO
 //                dataText.setTranslateY(bar.getBoundsInParent().getMaxY() + dataText.getBoundsInParent().getHeight()/2);
-                Translate translate = new Translate(-(bar.getBoundsInParent().getMaxY()*1.5), 0);
+                Translate translate = new Translate(-(bar.getBoundsInParent().getMaxY() * 1.5), 0);
                 dataText.getTransforms().add(translate);
             }
         }

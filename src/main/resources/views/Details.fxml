@@ -63,7 +63,7 @@
                                                 <SVGPath content="M12.3 3.7l4 4-12.3 12.3h-4v-4l12.3-12.3zM13.7 2.3l2.3-2.3 4 4-2.3 2.3-4-4z" />
                                              </graphic>
                                           </Button>
-                                          <Button fx:id="deleteCorrectionsBtn" layoutX="64.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteCorrection" prefHeight="30.0" prefWidth="160.0" text="deleteCorrections">
+                                          <Button fx:id="deleteCorrectionsBtn" layoutX="64.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteCorrection" prefHeight="30.0" prefWidth="250.0" text="deleteCorrections">
                                              <graphic>
                                                 <SVGPath content="M6 2l2-2h4l2 2h4v2h-16v-2h4zM3 6h14l-1 14h-12l-1-14zM8 8v10h1v-10h-1zM11 8v10h1v-10h-1z" />
                                              </graphic>

@@ -46,13 +46,13 @@ public class MainController {
     @FXML
     private TableView<Department> BPTableView;
     @FXML
-    private TableColumn<Department, String> departmentCol, businessPlanCol, currentLimitCol, percentCol;
+    private TableColumn<Department, String> departmentCol, businessPlanCol, currentLimitCol, percentCol, countCorrections;
     @FXML
     private PieChart mainChart;
     @FXML
     private TableView<Department> withoutLimitDepTableView;
     @FXML
-    private TableColumn<Department, String> departmentWithoutLimitCol, nullableLimitCol, businessPlanWithoutLimitCol;
+    private TableColumn<Department, String> departmentWithoutLimitCol, nullableLimitCol, businessPlanWithoutLimitCol, countCorrectionsWithoutLimit;
     @FXML
     private ComboBox<Integer> yearLimitCB;
     @FXML
@@ -226,6 +226,7 @@ public class MainController {
         businessPlanCol.setCellValueFactory(this::settingBusinessPlanCol);
         currentLimitCol.setCellValueFactory(this::settingCurrentLimitCol);
         percentCol.setCellValueFactory(cellData -> new SimpleStringProperty(getPercent(cellData)));
+        countCorrections.setCellValueFactory(this::settingsCountCorrectionsCol);
         changeTableViewFocus(BPTableView);
     }
 
@@ -235,6 +236,7 @@ public class MainController {
         departmentWithoutLimitCol.setCellValueFactory(this::settingDepartmentCol);
         nullableLimitCol.setCellValueFactory(this::settingCurrentLimitCol);
         businessPlanWithoutLimitCol.setCellValueFactory(this::settingBusinessPlanCol);
+        countCorrectionsWithoutLimit.setCellValueFactory(this::settingsCountCorrectionsCol);
         changeTableViewFocus(withoutLimitDepTableView);
     }
 
@@ -307,6 +309,8 @@ public class MainController {
         departmentWithoutLimitCol.setText(DEPARTMENT_WITHOUT_LIMIT_COL_TITLE);
         nullableLimitCol.setText(NULLABLE_LIMIT_COL_TITLE);
         businessPlanWithoutLimitCol.setText(BUSINESS_PLAN_WITHOUT_LIMIT_COL_TITLE);
+        countCorrections.setText(COUNT_CORRECTIONS);
+        countCorrectionsWithoutLimit.setText(COUNT_CORRECTIONS);
     }
 
     private ObservableValue<String> settingCurrentLimitCol(TableColumn.CellDataFeatures<Department, String> cellData) {
@@ -317,6 +321,19 @@ public class MainController {
             simpleStringProperty = new SimpleStringProperty(
                     formatNumber(moneyLimitService.findMoneyLimitByDepartmentAndYear(cellData.getValue(), yearLimitCB.getValue()).getCost())
             );
+        return simpleStringProperty;
+    }
+
+    private ObservableValue<String> settingsCountCorrectionsCol(TableColumn.CellDataFeatures<Department, String> cellData) {
+        SimpleStringProperty simpleStringProperty;
+        //TODO
+        if (correctionsService.findByDepartmentAndYear(cellData.getValue(), yearLimitCB.getValue()) == null) {
+            simpleStringProperty = new SimpleStringProperty();
+        } else {
+            simpleStringProperty = new SimpleStringProperty(
+                    String.valueOf(correctionsService.getCountCorrectionsByDepartmentAndYear(cellData.getValue(), yearLimitCB.getValue()))
+            );
+        }
         return simpleStringProperty;
     }
 
