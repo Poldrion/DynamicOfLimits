@@ -26,6 +26,7 @@ import static dynamics.utils.FilePathConstants.CORRECTIONS_EDIT_FXML;
 import static dynamics.utils.FormatUtils.formatNumber;
 import static dynamics.utils.FormatUtils.parseNumber;
 import static dynamics.utils.PropertiesUtils.GetYears;
+import static dynamics.utils.PropertiesUtils.getYearLimit;
 import static dynamics.utils.TitleConstants.*;
 
 public class CorrectionsEdit {
@@ -96,7 +97,8 @@ public class CorrectionsEdit {
             header.setText(CORRECTIONS_ADD);
             this.correction = new Corrections();
             departmentComboBox.setValue(department);
-            yearCB.getSelectionModel().selectFirst();
+//            yearCB.getSelectionModel().selectFirst();
+            yearCB.setValue(getYearLimit());
             dateCreateDP.setValue(LocalDate.now());
         } else {
             header.setText(CORRECTIONS_EDIT);

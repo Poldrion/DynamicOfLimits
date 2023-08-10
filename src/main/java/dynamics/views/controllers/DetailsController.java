@@ -8,6 +8,7 @@ import dynamics.model.services.MoneyLimitService;
 import dynamics.utils.FormatUtils;
 import dynamics.views.controllers.popups.CorrectionsEdit;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
@@ -108,8 +109,9 @@ public class DetailsController {
 
     @FXML
     private void deleteCorrection() {
-        Corrections correction = detailsTableView.getItems().get(detailsTableView.getItems().size() - 1);
-        if (correction != null) {
+        ObservableList<Corrections> corrections = detailsTableView.getItems();
+        Corrections correction = corrections.get(corrections.size() - 1);
+        if (correction != null && corrections.size() > 1) {
             MoneyLimit limit = moneyLimitService.findMoneyLimitByDepartmentAndYear(correction.getDepartment(), correction.getYearCorrections());
             limit.setCost(correction.getLastCostLimit());
             saveChangeLimit(limit);
@@ -130,7 +132,10 @@ public class DetailsController {
     private void settingsYearComboBox() {
         yearCB.getItems().addAll(GetYears());
         yearCB.setValue(YEAR);
-        yearCB.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> reload());
+        yearCB.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
+            YEAR = newValue;
+            reload();
+        });
     }
 
     private void settingsTitles() {
